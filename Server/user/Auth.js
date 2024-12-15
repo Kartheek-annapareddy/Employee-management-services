@@ -1,6 +1,8 @@
 const createConnection = require("../modal/connection");
 const express=require('express');
 const route=express.Router();
+const jwt=require('jsonwebtoken')
+const secret_key='qwdfghoikjrxdfcgpolkjmnsedfcgvolkjmnesdfcgiokj'
 
 route.post('/login',async(req,res)=>{
     var {email,password}=req.body  
@@ -27,9 +29,12 @@ route.post('/login',async(req,res)=>{
                })
             }
             else{
+            const token=jwt.sign(user,secret_key)
+
                 res.status(200).json({
                     ok:true,
                     userdetails:user,
+                    token:token,
                     message:'login is succesfull'
                 })
             }
@@ -39,7 +44,8 @@ route.post('/login',async(req,res)=>{
 catch (error){
    res.status(500).json({
     ok:false,
-    message:'server error'
+    message:'server error',
+    error:error
    })
 }
 })

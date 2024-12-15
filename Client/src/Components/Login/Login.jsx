@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+
 
 function Login() {
     var[state,setState]=useState({
-        username:'',
+        email:'',
         password:''
     })
 
@@ -16,9 +18,13 @@ function Login() {
     function getrequestcall(e) {
         e.preventDefault(); 
         console.log(state);
-        axios.post('',state)
+        axios.post('http://localhost:7409/auth/login',state).then((res)=>{
+          console.log(res,'data')
+        }).catch((error)=>{
+          console.log(error)
+        })
         setState({
-            username:'',
+            email:'',
             password:''
         })
       }
@@ -33,8 +39,8 @@ function Login() {
         <form onSubmit={getrequestcall}>
           <input
             type="text" 
-            name='username'
-            value={state.username}
+            name='email'
+            value={state.email}
             placeholder="Enter user name" 
             className="form-control mb-3"
             style={{height:'50px'}}

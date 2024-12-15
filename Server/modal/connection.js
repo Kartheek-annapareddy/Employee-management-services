@@ -8,4 +8,4 @@ async function createConnection(){
    const collection=db.collection('employee')
    return collection
 }
-module.export=createConnection;
+module.exports=createConnection;

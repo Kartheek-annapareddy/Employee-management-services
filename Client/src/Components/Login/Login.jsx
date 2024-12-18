@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 function Login() {
@@ -7,6 +8,8 @@ function Login() {
         email:'',
         password:''
     })
+
+    var Navigate=useNavigate('');
 
     function handlestate(e){
          setState({
@@ -20,12 +23,17 @@ function Login() {
         console.log(state);
         axios.post('http://localhost:7409/auth/login',state).then((res)=>{
           console.log(res,'data')
+          if(res.data.ok){
+            localStorage.setItem('token',res.data.token);
+            alert(res.data.message);
+            Navigate('/home')
+            setState({
+              email:'',
+              password:''
+          })
+          }
         }).catch((error)=>{
           console.log(error)
-        })
-        setState({
-            email:'',
-            password:''
         })
       }
       

@@ -16,7 +16,7 @@ app.use(express.json())
 
 app.use('/auth',userlogin)
 
-//http://locoalhost:7409/auth/login  to get login
+//http://locoalhost:7409/auth/login //to get login
 
 app.use('/user',getusers)
 

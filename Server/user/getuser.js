@@ -10,7 +10,7 @@ route.get('/getusers',async(req,res)=>{
         try{
        jwt.verify(token,secret_key,async(error,decode)=>{
         if(error){
-            res.status(400).json({
+            return res.status(400).json({
                 ok:false,
                 message:'invalid token'
             })
@@ -20,13 +20,14 @@ route.get('/getusers',async(req,res)=>{
         const collection=await createConnection();
         var data= await collection.find().toArray();
         if(!data||data.length===0){
-            res.status(400).json({
+             return res.status(400).json({
                 ok:false,
                 message:'data base looks empty'
             })
         }
         else{
-            res.status(200).json({
+            console.log('data is sent to the client')
+            return  res.status(200).json({
                 ok:true,
                 message:'data is sending.. ',
                 users:data
@@ -34,7 +35,7 @@ route.get('/getusers',async(req,res)=>{
         }
        })}
        catch(error){
-        res.status(500).json({
+         return res.status(500).json({
             ok:false,
             message:'internal error',
             error:error.message

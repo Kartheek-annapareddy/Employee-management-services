@@ -1,8 +1,192 @@
-table tr td{
-    border: 1px solid black;
+/* Container Styling */
+.container {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+  
+  /* Header Styling */
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .header h1 {
+    font-size: 36px;
+    color: #333;
+  }
+  
+  .add-user-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .add-user-btn i {
+    margin-right: 10px;
+  }
+  
+  .add-user-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Table Styling */
+  .user-table {
+    width: 100%;
     border-collapse: collapse;
-}
-
-td{
-    width:300px;
-}
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .user-table th, .user-table td {
+    padding: 12px 20px;
+    text-align: center;
+  }
+  
+  .user-table th {
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+  }
+  
+  .user-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .user-table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  /* Action Buttons Styling */
+  .user-table td:last-child {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .icon-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #007bff;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .icon-btn:hover {
+    background-color: #e9ecef;
+    border-radius: 50%;
+  }
+  
+  /* Modal Styling */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .modal-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  .modal-content input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .modal-actions button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .modal-actions button:hover {
+    background-color: #0056b3;
+  }
+  
+  .modal-actions button:last-child {
+    background-color: #ccc;
+  }
+  
+  .modal-actions button:last-child:hover {
+    background-color: #999;
+  }
+  
+  /* Responsive Design for Small Screens */
+  @media (max-width: 768px) {
+    .user-table th, .user-table td {
+      padding: 10px;
+      font-size: 14px;
+    }
+  
+    .header h1 {
+      font-size: 28px;
+    }
+  
+    .add-user-btn {
+      font-size: 14px;
+    }
+  
+    .modal-content {
+      width: 90%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 10px;
+    }
+  
+    .modal-content {
+      padding: 15px;
+    }
+  }
+  

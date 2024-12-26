@@ -8,7 +8,7 @@ function Login() {
         email:'',
         password:''
     })
-
+    var[errorData,setErrorData]=useState({})
     var Navigate=useNavigate('');
 
     function handlestate(e){
@@ -31,6 +31,9 @@ function Login() {
               email:'',
               password:''
           })
+          }
+          else{
+            setErrorData(res.data)
           }
         }).catch((error)=>{
           console.log(error)
@@ -63,6 +66,11 @@ function Login() {
             style={{height:'50px'}}
             onChange={handlestate}
           />
+          <div className='mb-2' style={{color:'red'}}>
+          { 
+            errorData?(<div>{errorData.message}</div>):null
+          }
+          </div>
           <button 
             type="submit" 
             className="btn btn-primary w-100"
